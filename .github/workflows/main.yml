@@ -35,6 +35,3 @@ Invoke-WebRequest -Uri $tsUrl -OutFile $installerPath
 Start-Process msiexec.exe -ArgumentList "/i", "`"$installerPath`"", "/quiet", "/norestart" -Wait
 Remove-Item $installerPath -Force
 - name: Establish Tailscale Connection
-run: |
-& "$env:ProgramFiles\Tailscale\tailscale.exe" up --authkey=${{ secrets.TAILSCALE_AUTH_KEY }} --hostname=gh-runner-$env:GITHUB_RUN_ID
-$tsIP = $null
